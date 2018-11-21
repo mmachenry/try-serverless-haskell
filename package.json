@@ -1,7 +1,7 @@
 {
   "name": "try-serverless-haskell",
   "version": "1.0.0",
-  "description": "I started off following the [serverless-haskell documentation](https://hackage.haskell.org/package/serverless-haskell-0.6.7) but I had to make sure to read the 0.6.7 which is what's available in Stack LTS-12.19. So when I ran `stack new` I was given 12.19 by default. I got into trouble following the new docs. Also important to note that I used 0.6.7 when I called the `npm install` command from those docs.",
+  "description": "Please see the README on GitHub at <https://github.com/githubuser/try-serverless-haskell#readme>",
   "main": "index.js",
   "directories": {
     "test": "test"
