@@ -17,8 +17,8 @@ Also important to note that I used 0.6.7 when I called the `npm install`
 command from those docs. This was my process here.
 
 Not mentioned in the docs was that I needed to add serverless-haskell, aeson,
-and lens to the build-depends section of the executable of my cabal file for
-this to build properly.
+and lens to the dependencies section of the executable of my package.yaml file
+for this to build properly.
 
     stack new try-serverless-haskell
     cd try-serverless-haskell
@@ -26,7 +26,7 @@ this to build properly.
     npm install --save serverless serverless-haskell@0.6.7
     vi serverless.yaml # cut and pasted what I found from tutorial
     vi app/Main.hs # cut and pasted what I found in tutorial
-    vi try-serverless-haskell.cabal # add dependencies
+    vi package.yaml # add dependencies
     stack build
     sls deploy
     sls invoke local -f myfunc
@@ -52,7 +52,7 @@ running on the AMI Linux system that Lambda's run on, that library seems to not
 be available. So I looked up static linking, found [this blog
 post](https://ro-che.info/articles/2015-10-26-static-linking-ghc), and add
 these two build options to the ghc-options section of the executable in my
-try-haskell-serverless.cabal file.
+package.yaml file.
 
     -optl-static -optl-pthread
 
