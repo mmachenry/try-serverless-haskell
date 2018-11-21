@@ -1,0 +1,27 @@
+{
+  "name": "try-serverless-haskell",
+  "version": "1.0.0",
+  "description": "I started off following the [serverless-haskell documentation](https://hackage.haskell.org/package/serverless-haskell-0.6.7) but I had to make sure to read the 0.6.7 which is what's available in Stack LTS-12.19. So when I ran `stack new` I was given 12.19 by default. I got into trouble following the new docs. Also important to note that I used 0.6.7 when I called the `npm install` command from those docs.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmachenry/try-serverless-haskell.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmachenry/try-serverless-haskell/issues"
+  },
+  "homepage": "https://github.com/mmachenry/try-serverless-haskell#readme",
+  "dependencies": {
+    "serverless": "^1.33.2",
+    "serverless-haskell": "^0.6.7"
+  },
+  "devDependencies": {}
+}

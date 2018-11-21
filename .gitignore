@@ -1,0 +1,5 @@
+.stack-work/
+try-serverless-haskell.cabal
+*~
+node_modules
+.serverless/
