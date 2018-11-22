@@ -8,8 +8,8 @@ import Data.Aeson.Embedded
 
 main = apiGatewayMain handler
 
-handler :: APIGatewayProxyRequest (Embedded Value) -> IO (APIGatewayProxyResponse (Embedded [Int]))
+handler :: APIGatewayProxyRequest (Embedded Value) -> IO (APIGatewayProxyResponse (Embedded [String]))
 handler request = do
   putStrLn "This should go to logs"
   print $ request ^. requestBody
-  pure $ responseOK & responseBodyEmbedded ?~ [1, 2, 3]
+  pure $ responseOK & responseBodyEmbedded ?~ [show request]
