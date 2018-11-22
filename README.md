@@ -1,5 +1,14 @@
 # try-haskell-serverless
 
+Introduction
+---
+This repository is a write up of my experience implementing an AWS Lambda
+function in Haskell using serverless-haskell. I'm writting up the process as an
+compliment to the existing documentation to record the solutions to the few
+hiccups I ran into and also provide a working demo to anyone who wants it.
+
+Implementing a basic Lambda function
+---
 I started off following the [serverless-haskell
 documentation](https://hackage.haskell.org/package/serverless-haskell-0.6.7)
 but I had to make sure to read the 0.6.7 which is what's available in Stack
@@ -31,7 +40,9 @@ for this to build properly.
     sls deploy
     sls invoke local -f myfunc
     sls invoke myfunc.
- 
+
+Adding an API Gateway to make it a RESTful API
+---
 Next I added the API Gateway so that this could be invoked over the web as a
 REST API. I followed the [AWSLambda.Events.APIGateway
 documentation](https://hackage.haskell.org/package/serverless-haskell-0.6.7/docs/AWSLambda-Events-APIGateway.html)
@@ -42,9 +53,9 @@ hitting the URL.
 
     {"message": "Internal server error"}
 
-So I check my CloudWatch logs where I found an error
+So I check my CloudWatch logs where I found this error.
 
-    ./try-haskell-serverless-exe: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by ./try-haskell-serverless-exe)
+    ./try-serverless-haskell-exe: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by ./try-serverless-haskell-exe)
 
 What ths means is that the system that I built the code on, my laptop, had the
 required GLIBC package and was dynalically linking to that library. When
@@ -54,8 +65,11 @@ post](https://ro-che.info/articles/2015-10-26-static-linking-ghc), and add
 these two build options to the ghc-options section of the executable in my
 package.yaml file.
 
-    -optl-static -optl-pthread
+    -optl-static
+    -optl-pthread
 
+Conclusion
+---
 With this, I had a working REST API on AWS Lambda written in Haskell. It was
 pretty straight forward. I'm leaving this repo here for myself in the future
 and hopefully someone else.
